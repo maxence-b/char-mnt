@@ -122,8 +122,8 @@ class VocabEntry(object):
         ###
         ###     You must prepend each word with the `start_of_word` character and append 
         ###     with the `end_of_word` character. 
-
-
+        word_ids = [[self[w] for w in s] for s in sents]
+        return word_ids
         ### END YOUR CODE
 
     def words2indices(self, sents):
