@@ -121,8 +121,11 @@ class VocabEntry(object):
         ###     defined above.
         ###
         ###     You must prepend each word with the `start_of_word` character and append 
-        ###     with the `end_of_word` character. 
-        word_ids = [[self[w] for w in s] for s in sents]
+        ###     with the `end_of_word` character.
+        sow = self.start_of_word
+        eow = self.end_of_word
+
+        word_ids = [[[sow, *[self.char2id[char] for char in w],eow] for w in s] for s in sents]
         return word_ids
         ### END YOUR CODE
 

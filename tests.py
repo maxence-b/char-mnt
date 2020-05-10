@@ -17,8 +17,19 @@ from vocab import Vocab, VocabEntry
 def test1():
     vocab = VocabEntry()
     print('vocab', vocab)
-    sents = [['hello','how','are','you'], ['great','thanks']]
+    sents = [['hello', 'how', 'are', 'you'], ['great', 'thanks']]
+    word_ids = vocab.words2charindices(sents)
+    print('Sentences in Chars', word_ids)
+
+def test2():
+    vocab = VocabEntry()
+    sentences = [['Human:', 'What', 'do', 'we', 'want?'], ['Computer:', 'Natural', 'language', 'processing!'],
+                 ['Human:', 'When', 'do', 'we', 'want', 'it?'], ['Computer:', 'When', 'do', 'we', 'want', 'what?']]
+    word_ids = vocab.words2charindices(sentences)
+    a= pad_sents_char(word_ids, 0)
+    print(a)
+
 
 
 if __name__ == '__main__':
-    test1()
+    test2()
