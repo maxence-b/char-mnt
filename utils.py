@@ -41,16 +41,14 @@ def pad_sents_char(sents, char_pad_token):
     for sent in sents:
         sent_padded = []
         for word in sent:
-            word = word[:max_word_length]
-            word_padded = word + [char_pad_token] * (max_word_length - len(word))
-            sent_padded += [word_padded]
-        sent_padded += [pad_word] * (max_sent_len - len(sent))
-        sents_padded += [sent_padded]
-
-
+            word = word[:max_word_length] # Truncate words that are too large
+            word_padded = word + [char_pad_token] * (max_word_length - len(word)) # add token to fill gaps
+            sent_padded += [word_padded] # create new padded sentence
+        sent_padded += [pad_word] * (max_sent_len - len(sent)) # pad sentences themselves
+        sents_padded += [sent_padded] # create new padded sentences.
     ### END YOUR CODE
 
-    return sents_padded
+    return sents_padded # Batch size,max sent len, max word len (21)
 
 
 def pad_sents(sents, pad_token):

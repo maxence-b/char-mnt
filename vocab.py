@@ -156,6 +156,14 @@ class VocabEntry(object):
         ### TODO: 
         ###     Connect `words2charindices()` and `pad_sents_char()` which you've defined in 
         ###     previous parts
+        char_pad_token = self.char2id['<pad>'] # 0
+
+        sent_char_indices = self.words2charindices(sents)
+        sents = pad_sents_char(sent_char_indices, char_pad_token)
+        sents_var = torch.tensor(sents,dtype=torch.long, device=device)
+        sents_var =sents_var.permute(1,0,2)
+
+        return sents_var # 9,4,21 (sent len, batch size, word len)
         
 
         ### END YOUR CODE
