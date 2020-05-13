@@ -60,8 +60,9 @@ class NMT(nn.Module):
         """ Take a mini-batch of source and target sentences, compute the log-likelihood of
         target sentences under the language models learned by the NMT system.
 
-        @param source (List[List[str]]): list of source sentence tokens
-        @param target (List[List[str]]): list of target sentence tokens, wrapped by `<s>` and `</s>`
+        @param source: (List[List[str]]) list of source sentence tokens
+        @param target: (List[List[str]]) list of target sentence tokens, wrapped by `<s>` and `</s>`
+
 
         @returns scores (Tensor): a variable/tensor of shape (b, ) representing the
                                     log-likelihood of generating the gold-standard target sentence for
