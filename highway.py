@@ -10,7 +10,6 @@ import torch.nn.functional as F
 
 class Highway(nn.Module):
 
-    # TODO: support for batches
     def __init__(self, e_word, dropout_rate=0.3):
         """Highway network from convoluted char output to word embedding
         @param e_word: int:  size of word embedding
@@ -36,12 +35,11 @@ class Highway(nn.Module):
         return x_word_emb
 
 
-### END YOUR CODE
-
 if __name__ == '__main__':
     e_word = 12 # e_word = 256 but let's see with a baby 12
+    batch_size = 4
     highway = Highway(e_word)
-    x_conv_out = torch.randn(e_word, 4)# embedding per batch of 4 words
+    x_conv_out = torch.randn(e_word, batch_size)# embedding per batch of 4 words
     print(x_conv_out.size())
-
+### END YOUR CODE
 
