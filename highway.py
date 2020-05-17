@@ -7,7 +7,6 @@ import torch.nn as nn
 import torch.nn.utils
 import torch.nn.functional as F
 
-
 class Highway(nn.Module):
 
     def __init__(self, e_word, dropout_rate=0.3):
