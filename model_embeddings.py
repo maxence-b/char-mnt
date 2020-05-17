@@ -41,6 +41,7 @@ class ModelEmbeddings(nn.Module):
         self.char_embeddings = nn.Embedding(len(vocab.char2id), e_char, pad_token_idx)
         self.cnn = CNN(e_char, embed_size, window_size)
         self.highway = Highway(embed_size, dropout)
+        self.embed_size = embed_size
 
         ### END YOUR CODE
 
